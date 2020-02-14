@@ -19,3 +19,5 @@ done
 
 tar -czvf "${backup_dir}/${timestamp}.tar.gz" ${backup_dir}/{dashboards,datasources,folders,alert_channels}/${timestamp}
 rm -rf ${backup_dir}/{dashboards,datasources,folders,alert_channels}/${timestamp}
+
+aws s3 cp ${backup_dir}/*.tar.gz s3://shopline-grafana-backup/${EKS_CLUSTER_NAME}
